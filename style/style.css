@@ -5,12 +5,12 @@ body{
 }
 
 
-/* FONTES */
+/* ------------------------ FONTES ------------------------ */
 .joan{
     font-family: 'Joan', sans-serif;
 }
 
-/* CORES */
+/* ------------------------ CORES ------------------------*/
 .bege{
     background-color:  #AA9B8E;
 }
@@ -35,9 +35,8 @@ body{
     display: flex;
     flex-direction: row;
 }
-/* -------------------------------------------------------   */
 
-/* NAVBAR */
+/* ------------------------ NAVBAR ------------------------ */
 .navbar{
     background-color: rgba(0, 0, 0, 0)0;
     height: 6%;
