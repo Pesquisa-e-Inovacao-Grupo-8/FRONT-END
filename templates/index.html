@@ -31,7 +31,7 @@
 
             <div class="nav-right">
                 <div class="nav-button">
-                <a href="../templates/login.html">Login</a>
+                <a href="../templates/rdr-login-sign.html">Entrar</a>
                 </div>
                 <!-- Botão hamburger (só aparece no mobile) -->
                 <button class="hamburger" id="hamburger" aria-label="Abrir menu">
@@ -46,7 +46,7 @@
                 <p>Pacotes</p>
                 <p>Sobre Nós</p>
                 <p>Agenda</p>
-                <a href="../templates/index.html">Login</a>
+                <a href="../templates/rdr-login-sign.html">Entrar</a>
             </div>
 
         </nav>
@@ -68,8 +68,13 @@
                 </p>
 
                 <div class="botoes row">
-                    <button class="btn-azul copse">Agendar horário</button>
-                    <button class="btn-claro copse">Conheça nossos serviços</button>
+                    <button class="btn-azul copse" onclick="irCadastro()">
+                        Agendar horário
+                    </button>
+
+                    <button class="btn-claro copse" onclick="irInfo()">
+                        Conheça nossos serviços
+                    </button>
                 </div>
 
             </div>
@@ -286,5 +291,13 @@
     }
 
     setInterval(slide, 3000)
+
+    function irCadastro(){
+        window.location.href = "../templates/rdr-login-sign.html"
+    }
+
+    function irInfo(){
+        window.location.href = "../templates/info.html"
+    }
 
 </script>

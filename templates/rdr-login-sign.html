@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agendamento</title>
+
+    <link rel="stylesheet" href="../style/login-sign.css">
+    <link rel="stylesheet" href="../style/cores.css">
+    <link rel="stylesheet" href="../style/fontes.css">
+
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="login-container">
+
+        <div class="login-card sombra-leve">
+
+            <a href="../templates/index.html" class="voltar-btn">←</a>
+
+            <h1>Já Possui Conta?</h1>
+            <p>Você já possui cadastro na plataforma?</p>
+
+            <div class="botoes column">
+
+                <button class="login-btn bege sombra-leve" onclick="irLogin()">
+                    Já tenho conta
+                </button>
+
+                <button class="login-btn sombra-leve" onclick="irCadastro()">
+                    Criar Conta
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../js/redirecionamento.js"></script>
+
+</body>
+
+</html>
+
+<script>
+
+function irLogin(){
+    window.location.href = "../templates/login.html"
+}
+
+function irCadastro(){
+    window.location.href = "../templates/sign.html"
+}
+
+</script>

@@ -92,7 +92,7 @@ body{
     padding:12px;
     margin-top:5px;
     border-radius:6px;
-    border:1px solid #ddd;
+    border:1px solid #9c9898;
     outline:none;
     transition:0.2s;
 }
@@ -108,7 +108,7 @@ body{
     padding:14px;
     border:none;
     border-radius:6px;
-    background:#d4af37;
+    background:#4c5983;
     color:white;
     font-weight:500;
     cursor:pointer;
@@ -117,4 +117,55 @@ body{
 
 .login-btn:hover{
     background:#b8962e;
+}
+
+/* ETAPA */
+
+.etapa{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+#etapa2{
+display:none;
+}
+
+/* progresso */
+
+.progress{
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:30px;
+gap:10px;
+}
+
+.step{
+width:30px;
+height:30px;
+border-radius:50%;
+background:#ccc;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+}
+
+.step.active{
+background:#AA9B8E;
+color:white;
+}
+
+.line{
+width:40px;
+height:3px;
+background:#ccc;
+}
+
+/* botoes */
+
+.botoes{
+display:flex;
+gap:10px;
 }
