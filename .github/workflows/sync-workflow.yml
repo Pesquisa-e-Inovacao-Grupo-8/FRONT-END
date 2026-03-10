@@ -21,7 +21,7 @@ jobs:
       - name: Setup Git
         run: |
           git config user.name "AlexTorresOP"
-          git config user.email "alexsander.torres@stech.school"
+          git config user.email "alexsander.torres@sptech.school"
 
       - name: Fetch all branches
         run: git fetch origin
