@@ -23,6 +23,14 @@
       "telefone": "TesteTestinho",
       "email": "TesteTestinho",
       "senha": "TesteTestinho"
+    },
+    {
+      "id": "edc3",
+      "nome": "Erick David",
+      "cpf": "93909143024",
+      "telefone": "23154215742",
+      "email": "erick@e.com",
+      "senha": "123456"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
