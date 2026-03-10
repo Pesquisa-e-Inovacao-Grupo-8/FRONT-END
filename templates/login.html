@@ -10,6 +10,15 @@
 </head>
 
 <body>
+    <script>
+
+const token = localStorage.getItem("token")
+
+if(token){
+    window.location.href = "pagina-cliente.html"
+}
+
+</script>
 
 <div class="background"></div>
 
@@ -24,15 +33,15 @@
 
             <div class="input-group sombra-leve">
                 <label>Email</label>
-                <input type="email" placeholder="seuemail@email.com">
+                <input type="email" id="email" placeholder="seuemail@email.com">
             </div>
 
             <div class="input-group sombra-leve">
                 <label>Senha</label>
-                <input type="password" placeholder="••••••••">
+                <input type="password" id="senha" placeholder="••••••••">
             </div>
 
-            <button class="login-btn bege sombra-leve">Entrar</button>
+            <button  onclick="login()" class="login-btn bege sombra-leve">Entrar</button>
 
         </div>
 
@@ -42,3 +51,50 @@
 
 </body>
 </html>
+<script>
+
+async function login(){
+
+    const email = document.querySelector("#email").value.trim().toLowerCase()
+    const senha = document.querySelector("#senha").value.trim()
+
+    if(!email || !senha){
+        alert("Preencha email e senha")
+        return
+    }
+
+    try{
+        const resposta = await fetch("http://localhost:3000/usuarios")
+        const usuarios = await resposta.json()
+
+        const usuario = usuarios.find(u => 
+            u.email.toLowerCase() === email && u.senha === senha
+        )
+        if(usuario){
+
+            const token = crypto.randomUUID()
+            
+            localStorage.setItem("token", token)
+
+            alert("Login realizado!")
+
+            localStorage.setItem("usuario", JSON.stringify(usuario))
+
+            window.location.href = "../templates/pagina-cliente.html"
+
+        }else{
+
+            alert("Email ou senha incorretos")
+
+        }
+
+    }catch(erro){
+
+        console.error(erro)
+        alert("Erro ao conectar com servidor")
+
+    }
+
+}
+
+</script>
