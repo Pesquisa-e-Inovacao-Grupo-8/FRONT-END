@@ -1,5 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/joan');
 @import url('https://fonts.googleapis.com');
+@import url('https://cdn.jsdelivr.net/fontsource/fonts/cormorant:vf@latest/latin-wght-normal.woff2');
 
 .joan {
   font-family: 'Joan', serif;
@@ -7,4 +8,10 @@
 
 .copse {
     font-family: 'Copse', serif;
+}
+
+.cormorant {
+    font-family: 'Cormorant Variable', serif;
+    /* Use a weight within the supported range (e.g., 300 to 700) */
+    font-weight: 500; 
 }
