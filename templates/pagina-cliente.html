@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Área do Cliente</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
+    url("https://images.unsplash.com/photo-1556228453-efd6c1ff04f6");
+
+    background-size:cover;
+    background-position:center;
+
+    height:100vh;
+}
+
+/* CONTAINER */
+
+.dashboard{
+    height:100%;
+    width:100%;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:80px;
+    padding:0 80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    color:white;
+
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(6px);
+}
+
+/* ICONES NAVBAR */
+
+.nav-icons{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.nav-icons span{
+    font-size:32px;
+    cursor:pointer;
+    transition:0.3s;
+    color:white;
+}
+
+.nav-icons span:hover{
+    transform:scale(1.2);
+    color:#e5e5e5;
+}
+
+/* AREA PRINCIPAL */
+
+.dashboard-content{
+    height:calc(100% - 80px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CARDS */
+
+.cards{
+    display:flex;
+    gap:40px;
+}
+
+.dashboard-card{
+
+    width:320px;
+    height:220px;
+
+    background:white;
+
+    border-radius:12px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:0px 6px 18px rgba(0,0,0,0.15);
+}
+
+.dashboard-card:hover{
+    transform:translateY(-8px);
+}
+
+/* ICONES */
+
+.material-symbols-outlined{
+    font-size:55px;
+    color:#1f4e79;
+}
+
+.dashboard-card h2{
+    margin-top:10px;
+    color:#1f4e79;
+}
+
+.dashboard-card p{
+    margin-top:5px;
+    color:#5a5a5a;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <div class="navbar">
+
+        <h1>Painel do Cliente</h1>
+
+        <div class="nav-icons">
+
+            <span 
+            class="material-symbols-outlined"
+            onclick="irConfig()"
+            title="Configurações da conta">
+            settings
+            </span>
+
+            <span 
+            class="material-symbols-outlined"
+            onclick="logout()"
+            title="Sair da conta">
+            logout
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="dashboard-content">
+
+        <div class="cards">
+
+            <div class="dashboard-card" onclick="irAgendar()">
+
+                <span class="material-symbols-outlined">
+                calendar_month
+                </span>
+
+                <h2>Agendar</h2>
+
+                <p>Marque seu próximo procedimento</p>
+
+            </div>
+
+
+            <div class="dashboard-card" onclick="irPacotes()">
+
+                <span class="material-symbols-outlined">
+                diamond
+                </span>
+
+                <h2>Pacotes</h2>
+
+                <p>Veja nossos pacotes exclusivos</p>
+
+            </div>
+
+
+            <div class="dashboard-card" onclick="irAgendamentos()">
+
+                <span class="material-symbols-outlined">
+                event_note
+                </span>
+
+                <h2>Meus Agendamentos</h2>
+
+                <p>Gerencie seus horários</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function irAgendar(){
+    window.location.href="agendar.html"
+}
+
+function irPacotes(){
+    window.location.href="pacotes.html"
+}
+
+function irAgendamentos(){
+    window.location.href="meus-agendamentos.html"
+}
+
+function irConfig(){
+    window.location.href="configuracoes.html"
+}
+
+function logout(){
+    window.location.href="login.html"
+}
+
+</script>
+
+</body>
+</html>

@@ -34,24 +34,24 @@
 
             </div>
 
-            <form id="cadastroForm">
+            <div id="cadastroForm">
 
                 <!-- ETAPA 1 -->
                 <div class="etapa" id="etapa1">
 
                     <div class="input-group sombra-leve">
                         <label>Nome completo</label>
-                        <input type="text" required>
+                        <input type="text" required id="nome">
                     </div>
 
                     <div class="input-group sombra-leve">
                         <label>CPF</label>
-                        <input type="text" required>
+                        <input type="text" required id="cpf">
                     </div>
 
                     <div class="input-group sombra-leve">
                         <label>Telefone</label>
-                        <input type="tel" required>
+                        <input type="tel" required id="telefone">
                     </div>
 
                     <button type="button" class="login-btn bege sombra-leve" onclick="proximaEtapa()">
@@ -66,27 +66,27 @@
 
                     <div class="input-group sombra-leve">
                         <label>Email</label>
-                        <input type="email" required>
+                        <input type="email" required id="email-1">
                     </div>
 
                     <div class="input-group sombra-leve">
                         <label>Confirmar Email</label>
-                        <input type="email" required>
+                        <input type="email" required id="email-2">
                     </div>
 
                     <div class="input-group sombra-leve">
                         <label>Senha</label>
-                        <input type="password" required>
+                        <input type="password" required id="senha-1">
                     </div>
 
                     <div class="input-group sombra-leve">
                         <label>Confirmar Senha</label>
-                        <input type="password" required>
+                        <input type="password" required id="senha-2">
                     </div>
 
                     <div class="botoes">
 
-                        <button class="login-btn bege sombra-leve">
+                        <button onclick="cadastro()" class="login-btn bege sombra-leve">
                             Criar Conta
                         </button>
 
@@ -94,7 +94,7 @@
 
                 </div>
 
-            </form>
+            </div>
 
         </div>
 
@@ -147,4 +147,78 @@ function acaoVoltar(){
     }
 
 }
+
+
+async function cadastro(){
+
+    const nome = document.querySelector("#nome").value
+    const cpf = document.querySelector("#cpf").value
+    const telefone = document.querySelector("#telefone").value
+
+    const email1 = document.querySelector("#email-1").value
+    const email2 = document.querySelector("#email-2").value
+
+    const senha1 = document.querySelector("#senha-1").value
+    const senha2 = document.querySelector("#senha-2").value
+
+
+    // =========================
+    // VALIDAÇÃO (DESATIVADA POR ENQUANTO)
+    // =========================
+
+    /*
+    if(email1 !== email2){
+        alert("Os emails não coincidem")
+        return
+    }
+
+    if(senha1 !== senha2){
+        alert("As senhas não coincidem")
+        return
+    }
+    */
+
+    // usando apenas o primeiro para teste
+    const usuario = {
+        nome: nome,
+        cpf: cpf,
+        telefone: telefone,
+        email: email1,
+        senha: senha1
+    }
+
+
+    try{
+
+        const resposta = await fetch("http://localhost:3000/usuarios",{
+
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(usuario)
+
+        })
+
+        if(resposta.ok){
+
+            alert("Cadastro realizado com sucesso!")
+
+            window.location.href = "../templates/login.html"
+
+        }else{
+
+            alert("Erro ao cadastrar")
+
+        }
+
+    }catch(erro){
+
+        console.error(erro)
+        alert("Erro ao conectar com o servidor")
+
+    }
+
+}
+
 </script>

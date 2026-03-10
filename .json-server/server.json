@@ -1,0 +1,29 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "João Silva",
+      "cpf": "12345678900",
+      "telefone": "11999999999",
+      "email": "joao@email.com",
+      "senha": "123456"
+    },
+    {
+      "id": "c61c",
+      "nome": "Teste",
+      "cpf": "Teste",
+      "telefone": "Teste",
+      "email": "Teste",
+      "senha": "Teste"
+    },
+    {
+      "id": "b374",
+      "nome": "TesteTestinho",
+      "cpf": "TesteTestinho",
+      "telefone": "TesteTestinho",
+      "email": "TesteTestinho",
+      "senha": "TesteTestinho"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
