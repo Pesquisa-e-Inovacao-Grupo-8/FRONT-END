@@ -1,37 +1,78 @@
-
 name: Sync branches after release
 
 on:
   push:
     branches:
       - main
-      
+
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
-  sync:
+  sync-homolog:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Configure git
+      - name: Sync main -> homolog
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-
-      - name: Sync main/homolog
-        run: |
-          git checkout homolog
+          git checkout -b sync-main-homolog
           git merge origin/main --no-edit
-          git push origin homolog
 
-      - name: Sync main/develop
+      - name: Create PR homolog
+        id: pr_homolog
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: sync-main-homolog
+          base: homolog
+          title: "Auto Sync: main → homolog"
+          body: "PR automático criado pelo workflow para sincronizar branches."
+          delete-branch: true
+
+      - name: Enable auto-merge
+        if: steps.pr_homolog.outputs.pull-request-number != ''
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ steps.pr_homolog.outputs.pull-request-number }}
+          merge-method: merge
+
+  sync-develop:
+    runs-on: ubuntu-latest
+    needs: sync-homolog
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync main -> develop
         run: |
-          git checkout develop
+          git checkout -b sync-main-develop
           git merge origin/main --no-edit
-          git push origin develop
+
+      - name: Create PR develop
+        id: pr_develop
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: sync-main-develop
+          base: develop
+          title: "Auto Sync: main → develop"
+          body: "PR automático criado pelo workflow para sincronizar branches."
+          delete-branch: true
+
+      - name: Enable auto-merge
+        if: steps.pr_develop.outputs.pull-request-number != ''
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ steps.pr_develop.outputs.pull-request-number }}
+          merge-method: merge
