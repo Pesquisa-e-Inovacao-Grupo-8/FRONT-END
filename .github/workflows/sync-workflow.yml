@@ -1,0 +1,40 @@
+name: Sync branches after release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Setup Git
+        run: |
+          git config user.name "AlexTorresOP"
+          git config user.email "alexsander.torres@sptech.school"
+
+      - name: Fetch branches
+        run: git fetch origin
+
+      - name: Merge main into homolog
+        run: |
+          git checkout -B homolog origin/homolog
+          git merge origin/main --no-edit
+          git push https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} homolog
+
+      - name: Merge main into develop
+        run: |
+          git checkout -B develop origin/develop
+          git merge origin/main --no-edit
+          git push https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} develop

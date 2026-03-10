@@ -177,7 +177,7 @@ body{
                 <span class="material-symbols-outlined">
                 diamond
                 </span>
-
+                
                 <h2>Pacotes</h2>
 
                 <p>Veja nossos pacotes exclusivos</p>
@@ -202,45 +202,6 @@ body{
     </div>
 
 </div>
-
-<script>
-    const token = localStorage.getItem("token")
-const usuario = JSON.parse(localStorage.getItem("usuario"))
-
-if(!token || !usuario){
-    window.location.href = "login.html"
-}
-document.querySelector("#msg").innerText =
-`Olá, ${usuario.nome}`
-</script>
-
-
-<script>
-
-function irAgendar(){
-    window.location.href="agendar.html"
-}
-
-function irPacotes(){
-    window.location.href="pacotes.html"
-}
-
-function irAgendamentos(){
-    window.location.href="meus-agendamentos.html"
-}
-
-function irConfig(){
-    window.location.href="configuracoes.html"
-}
-
-function logout(){
-    localStorage.removeItem("token")
-    localStorage.removeItem("usuario")
-
-    window.location.href="login.html"
-}
-
-</script>
-
+    <script src="../scripts/utils.js"></script>
 </body>
 </html>
