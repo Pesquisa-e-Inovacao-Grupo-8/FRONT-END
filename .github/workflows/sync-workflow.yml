@@ -29,6 +29,7 @@ jobs:
           base: homolog
           title: "Sync main → homolog"
           body: "Automatic sync"
+          delete-branch: true
 
   sync-develop:
     needs: sync-homolog
@@ -50,3 +51,4 @@ jobs:
           base: develop
           title: "Sync main → develop"
           body: "Automatic sync"
+          delete-branch: true
