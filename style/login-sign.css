@@ -169,3 +169,44 @@ background:#ccc;
 display:flex;
 gap:10px;
 }
+
+/* erro */
+.input-error {
+    border: 2px solid #e74c3c !important;
+}
+
+.label-error {
+    color: #e74c3c !important;
+}
+
+.error-message{
+    color:#e74c3c !important;
+    font-size:12px !important;
+    margin-top:4px !important;
+}
+
+/* Senha */.senha-wrapper{
+    position: relative;
+}
+
+.senha-wrapper input{
+    width:100%;
+    padding-right:40px;
+}
+
+.toggle-senha{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-senha svg{
+    transition: 0.2s;
+}
