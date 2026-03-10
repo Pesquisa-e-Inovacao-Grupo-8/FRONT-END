@@ -46,12 +46,12 @@
 
                     <div class="input-group sombra-leve">
                         <label>CPF</label>
-                        <input type="text" required id="cpf">
+                        <input type="text" required id="cpf" maxlength="14">
                     </div>
 
                     <div class="input-group sombra-leve">
                         <label>Telefone</label>
-                        <input type="tel" required id="telefone">
+                        <input type="tel" required id="telefone" maxlength="15">
                     </div>
 
                     <button type="button" class="login-btn bege sombra-leve" onclick="proximaEtapa()">
@@ -76,12 +76,29 @@
 
                     <div class="input-group sombra-leve">
                         <label>Senha</label>
-                        <input type="password" required id="senha-1">
+                        <div class="senha-wrapper">
+                            <input type="password" required id="senha-1">
+                            <svg class="toggle-senha" data-target="senha-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <line class="eye-off" x1="1" y1="1" x2="23" y2="23" stroke="#444" stroke-width="2" style="display:block"/>
+        </svg>
+                        </div>
                     </div>
 
                     <div class="input-group sombra-leve">
                         <label>Confirmar Senha</label>
-                        <input type="password" required id="senha-2">
+                        <div class="senha-wrapper">
+                            <input type="password" required id="senha-2">
+                            <svg class="toggle-senha eye" data-target="senha-2" xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path class="eye-open" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+                                <circle class="eye-open" cx="12" cy="12" r="3" />
+                                <line class="eye-off" x1="1" y1="1" x2="23" y2="23" stroke="#444" stroke-width="2"
+                                    style="display:block" />
+                            </svg>
+                        </div>
                     </div>
 
                     <div class="botoes">
@@ -100,7 +117,7 @@
 
     </div>
 
-    <script src="../js/cadastro.js"></script>
+    <script src="../scripts/utils.js"></script>
 
 </body>
 
@@ -115,110 +132,230 @@
 
     let etapaAtual = 1
 
+    const cpfInput = document.querySelector("#cpf");
 
-function proximaEtapa(){
+    cpfInput.addEventListener("input", e => {
+        e.target.value = aplicarMascara(e.target.value, "cpf");
+    });
 
-    etapa1.style.display = "none"
-    etapa2.style.display = "flex"
+    const telefoneInput = document.querySelector("#telefone");
 
-    steps[0].classList.remove("active")
-    steps[1].classList.add("active")
+    telefoneInput.addEventListener("input", e => {
+        e.target.value = aplicarMascara(e.target.value, "telefone");
+    });
 
-    etapaAtual = 2
-}
-
-
-function acaoVoltar(){
-
-    if(etapaAtual === 1){
-
-        window.location.href = "../templates/rdr-login-sign.html"
-
-    }else{
-
-        etapa2.style.display = "none"
-        etapa1.style.display = "flex"
-
-        steps[1].classList.remove("active")
-        steps[0].classList.add("active")
-
-        etapaAtual = 1
-
-    }
-
-}
-
-
-async function cadastro(){
-
-    const nome = document.querySelector("#nome").value
-    const cpf = document.querySelector("#cpf").value
-    const telefone = document.querySelector("#telefone").value
-
-    const email1 = document.querySelector("#email-1").value
-    const email2 = document.querySelector("#email-2").value
-
-    const senha1 = document.querySelector("#senha-1").value
-    const senha2 = document.querySelector("#senha-2").value
-
-
-    // =========================
-    // VALIDAÇÃO (DESATIVADA POR ENQUANTO)
-    // =========================
-
-    /*
-    if(email1 !== email2){
-        alert("Os emails não coincidem")
-        return
-    }
-
-    if(senha1 !== senha2){
-        alert("As senhas não coincidem")
-        return
-    }
-    */
-
-    // usando apenas o primeiro para teste
-    const usuario = {
-        nome: nome,
-        cpf: cpf,
-        telefone: telefone,
-        email: email1,
-        senha: senha1
-    }
-
-
-    try{
-
-        const resposta = await fetch("http://localhost:3000/usuarios",{
-
-            method: "POST",
-            headers:{
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(usuario)
-
+    //removedor de erros
+    document.querySelectorAll("input").forEach(input => {
+        input.addEventListener("input", () => {
+            limparErro(input)
         })
+    })
 
-        if(resposta.ok){
+    function proximaEtapa() {
 
-            alert("Cadastro realizado com sucesso!")
+        const nomeInput = document.querySelector("#nome")
+        const cpfInput = document.querySelector("#cpf")
+        const telefoneInput = document.querySelector("#telefone")
 
-            window.location.href = "../templates/login.html"
+        const nome = nomeInput.value.trim().replace(/\s+/g, " ")
+        const cpf = cpfInput.value.trim()
+        const telefone = telefoneInput.value.trim()
 
-        }else{
+        limparErro(nomeInput)
+        limparErro(cpfInput)
+        limparErro(telefoneInput)
 
-            alert("Erro ao cadastrar")
+        let temErro = false
+
+        if (!nome) {
+            mostrarErro(nomeInput, "Informe seu nome completo")
+            temErro = true
+        }
+
+        if (!cpf) {
+            mostrarErro(cpfInput, "Informe o CPF")
+            temErro = true
+        }
+
+        if (!telefone) {
+            mostrarErro(telefoneInput, "Informe o telefone")
+            temErro = true
+        }
+
+        if (nome && !validarNome(nome)) {
+            mostrarErro(nomeInput, "Digite nome e sobrenome")
+            temErro = true
+        }
+
+        if (cpf && !validarCPF(cpf)) {
+            mostrarErro(cpfInput, "CPF inválido")
+            temErro = true
+        }
+
+        if (telefone && !validarTelefone(telefone)) {
+            mostrarErro(telefoneInput, "Telefone inválido")
+            temErro = true
+        }
+
+        if (temErro) return
+
+        etapa1.style.display = "none"
+        etapa2.style.display = "flex"
+
+        steps[0].classList.remove("active")
+        steps[1].classList.add("active")
+
+        etapaAtual = 2
+    }
+
+    function acaoVoltar() {
+
+        if (etapaAtual === 1) {
+
+            window.location.href = "../templates/rdr-login-sign.html"
+
+        } else {
+
+            etapa2.style.display = "none"
+            etapa1.style.display = "flex"
+
+            steps[1].classList.remove("active")
+            steps[0].classList.add("active")
+
+            etapaAtual = 1
 
         }
 
-    }catch(erro){
-
-        console.error(erro)
-        alert("Erro ao conectar com o servidor")
-
     }
 
-}
+    //ver senha
+document.querySelectorAll(".toggle-senha").forEach(botao => {
+    botao.addEventListener("click", () => {
+
+        const input = document.getElementById(botao.dataset.target)
+        const linha = botao.querySelector(".eye-off")
+
+        if(input.type === "password"){
+
+            input.type = "text"
+            linha.style.display = "none" // olho aberto
+
+        } else {
+
+            input.type = "password"
+            linha.style.display = "block" // olho cortado
+
+        }
+
+    })
+})
+    async function cadastro() {
+
+        const email1Input = document.querySelector("#email-1")
+        const email2Input = document.querySelector("#email-2")
+        const senha1Input = document.querySelector("#senha-1")
+        const senha2Input = document.querySelector("#senha-2")
+
+        const email1 = email1Input.value.trim().toLowerCase()
+        const email2 = email2Input.value.trim().toLowerCase()
+
+        const senha1 = senha1Input.value
+        const senha2 = senha2Input.value
+
+        limparErro(email1Input)
+        limparErro(email2Input)
+        limparErro(senha1Input)
+        limparErro(senha2Input)
+
+        let temErro = false
+
+        // EMAIL
+        if (!email1) {
+            mostrarErro(email1Input, "Informe seu email")
+            temErro = true
+        }
+        else if (!validarEmail(email1)) {
+            mostrarErro(email1Input, "Email inválido")
+            temErro = true
+        }
+
+        if (!email2) {
+            mostrarErro(email2Input, "Confirme seu email")
+            temErro = true
+        }
+        else if (email1 && email1 !== email2) {
+            mostrarErro(email2Input, "Os emails não coincidem")
+            temErro = true
+        }
+
+
+        // SENHA
+        if (!senha1) {
+            mostrarErro(senha1Input, "Informe uma senha")
+            temErro = true
+        }
+        else if (senha1.length < 6) {
+            mostrarErro(senha1Input, "A senha deve ter pelo menos 6 caracteres")
+            temErro = true
+        }
+
+        if (!senha2) {
+            mostrarErro(senha2Input, "Confirme sua senha")
+            temErro = true
+        }
+        else if (senha1 && senha1 !== senha2) {
+            mostrarErro(senha2Input, "As senhas não coincidem")
+            temErro = true
+        }
+
+
+        if (temErro) return
+
+        const nome = document.querySelector("#nome").value
+        const cpf = document.querySelector("#cpf").value
+        const telefone = document.querySelector("#telefone").value
+
+
+        const usuario = {
+            nome: nome,
+            cpf: limparCPF(cpf),
+            telefone: telefone.replace(/\D/g, ""),
+            email: email1,
+            senha: senha1
+        }
+
+
+        try {
+
+            const resposta = await fetch("http://localhost:3000/usuarios", {
+
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(usuario)
+
+            })
+
+            if (resposta.ok) {
+
+                alert("Cadastro realizado com sucesso!")
+
+                window.location.href = "../templates/login.html"
+
+            } else {
+
+                alert("Erro ao cadastrar")
+
+            }
+
+        } catch (erro) {
+
+            console.error(erro)
+            alert("Erro ao conectar com o servidor")
+
+        }
+
+    }
 
 </script>
