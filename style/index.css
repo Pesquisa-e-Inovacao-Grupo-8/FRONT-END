@@ -7,8 +7,13 @@
 
 /* ------------------------ COMUM ------------------------  */
 
-.container{
+.container-principal{
     height: 1180px;
+    width: 100%;
+}
+
+.container-secundario{
+    min-height: 900px;
     width: 100%;
 }
 
@@ -283,6 +288,28 @@
   color: #0d2b52;
 }
 
+.team-header h2::after{
+  content: "";
+  display: block;
+  width: 140px;
+  height: 3px;  
+  background: linear-gradient(90deg,#fcfcfc,#ffe674);
+  margin: 15px auto 0 auto;
+  border-radius: 3px;
+}
+.team-header h2::before{
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle,rgba(255,255,255,0.25),transparent);
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+
 .team-header p {
   margin-top: 10px;
   color: #3d3d3d;
@@ -339,26 +366,57 @@
 /* ------------------------ MAPA ------------------------ */
 
 .mapa-titulo{
-  margin: 80px 0px 30px;
-  font-size: 80px;
+  font-size: 72px;
+  color: #000000;
+  position: relative;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+/* linha decorativa */
+.mapa-titulo::after{
+  content: "";
+  display: block;
+  width: 160px;
+  height: 3px;
+  background: linear-gradient(90deg,#fcfcfc,#ffe674);
+  margin: 15px auto 0 auto;
+  border-radius: 2px;
+}
+
+/* detalhe suave atrás */
+.mapa-titulo::before{
+  content: "Studio Tukotomi";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 120px;
+  color: rgba(0,0,0,0.05);
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 .mapa-section{
     width: 100%;
-    padding: 120px 10%;
     gap: 40px;
     background-color: #f4f4f4;
 }
 
 .mapa-container{
-    width: 80%;
-    height: 800px;
-    border-radius: 12px;
-    overflow: hidden;
-
-    box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
-
+    width: 70%;
+    height: 600px;
+    border-radius: 14px;
+    box-shadow: 0px 12px 35px rgba(0,0,0,0.18);
     border: 4px solid #AA9B8E;
+    margin: 40px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.mapa-container:hover{
+    transform: scale(1.02);
 }
 
 .mapa-container iframe{

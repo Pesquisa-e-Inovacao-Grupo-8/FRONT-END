@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://fonts.googleapis.com/css2?family=Copse&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- LINKS DE CSS's -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="../style/index.css">
     <link rel="stylesheet" href="../style/index-mobile.css">
     <link rel="stylesheet" href="../style/cores.css">
     <link rel="stylesheet" href="../style/fontes.css">
-    <!-- =+=+=+=+=+=+=+= -->
+
     <title>Studio Tukotomi</title>
 </head>
+
 <body>
 
     <!-- HERO -->
-    <div class="container bege column">
-        
-        <!-- HTML -->
+    <div class="container-principal bege column">
+
         <nav class="navbar row">
 
             <div class="joan row nav-text">
-                <img src="../assets/logo.png" class="logo">
-                <!-- Menu desktop -->
+                <img src="../assets/logo.png" class="logo" alt="Logo">
+
                 <p>Pacotes</p>
                 <p>Sobre Nós</p>
                 <p>Agenda</p>
             </div>
 
             <div class="nav-right">
+
                 <div class="nav-button">
-                <a href="../templates/rdr-login-sign.html">Entrar</a>
+                    <a href="../templates/rdr-login-sign.html">Entrar</a>
                 </div>
-                <!-- Botão hamburger (só aparece no mobile) -->
+
                 <button class="hamburger" id="hamburger" aria-label="Abrir menu">
-                <span class="cinza"></span>
-                <span class="cinza"></span>
-                <span class="cinza"></span>
+                    <span class="cinza"></span>
+                    <span class="cinza"></span>
+                    <span class="cinza"></span>
                 </button>
+
             </div>
 
-            <!-- Menu mobile -->
             <div class="copse mobile-menu cinza centralizar" id="mobileMenu">
                 <p>Pacotes</p>
                 <p>Sobre Nós</p>
@@ -50,9 +54,10 @@
             </div>
 
         </nav>
+
         <div class="under-nav row">
 
-            <div class="container-filho column joan centralizar" style="padding-bottom: 170px;">
+            <div class="container-filho column joan centralizar" style="padding-bottom:170px;">
 
                 <h1 class="titulo">
                     Praticidade, conforto <br>
@@ -68,6 +73,7 @@
                 </p>
 
                 <div class="botoes row">
+
                     <button class="btn-azul copse" onclick="irCadastro()">
                         Agendar horário
                     </button>
@@ -75,6 +81,7 @@
                     <button class="btn-claro copse" onclick="irInfo()">
                         Conheça nossos serviços
                     </button>
+
                 </div>
 
             </div>
@@ -82,166 +89,188 @@
             <div class="container-renata"></div>
 
         </div>
-
     </div>
 
+
     <!-- SERVIÇOS -->
-    <div class="container column centralizar sobrepor">
+    <div class="container-principal column centralizar sobrepor">
 
         <div class="servicos branco column copse">
 
             <div class="row linha">
+
                 <div class="card">
                     <h3>Corte Feminino</h3>
-                    <img src="../assets/tesouras.png">
+                    <img src="../assets/tesouras.png" alt="">
                 </div>
+
                 <div class="card">
                     <h3>Manicure</h3>
                     <img src="../assets/manicure.png" alt="">
                 </div>
+
                 <div class="card">
                     <h3>Estética</h3>
                     <img src="../assets/botox.png" alt="">
                 </div>
+
             </div>
 
+
             <div class="row linha">
+
                 <div class="card">
                     <h3>Pedicure</h3>
                     <img src="../assets/pedicure.png" alt="">
                 </div>
+
                 <div class="card destaque">
                     <h3>Coloração</h3>
                     <img src="../assets/coloracao.png" alt="">
+
+
+
+
                 </div>
+
                 <div class="card">
                     <h3>Jato de Plasma</h3>
                     <img src="../assets/mascara-facial.png" alt="">
                 </div>
+
             </div>
 
         </div>
     </div>
 
-    <div class="container cinza row detalhes-servicos">
+
+    <!-- DETALHES SERVIÇOS -->
+    <div class="container-principal cinza row detalhes-servicos">
 
         <div class="imagem-modelo"></div>
 
-            <div class="texto-servicos centralizar column joan">
+        <div class="texto-servicos centralizar column joan">
 
-                <div class="item">
-                    <h2>Corte Feminino</h2>
-                    <img src="../assets/tesouras.png">
-                    <p>Cortes personalizados que valorizam seu estilo e realçam sua beleza.</p>
-                </div>
+            <div class="item">
+                <h2>Corte Feminino</h2>
+                <img src="../assets/tesouras.png" alt="">
+                <p>Cortes personalizados que valorizam seu estilo e realçam sua beleza.</p>
+            </div>
 
-                <div class="item">
-                    <h2>Manicure</h2>
-                    <img src="../assets/manicure.png" alt="">
-                    <p>Cuidado completo das unhas com acabamento impecável e durabilidade.</p>
-                </div>
+            <div class="item">
+                <h2>Manicure</h2>
+                <img src="../assets/manicure.png" alt="">
+                <p>Cuidado completo das unhas com acabamento impecável e durabilidade.</p>
+            </div>
 
-                <div class="item">
-                    <h2>Estética</h2>
-                    <img src="../assets/botox.png" alt="">
-                    <p>Tratamentos que revitalizam e cuidam da sua pele.</p>
-                </div>
+            <div class="item">
+                <h2>Estética</h2>
+                <img src="../assets/botox.png" alt="">
+                <p>Tratamentos que revitalizam e cuidam da sua pele.</p>
+            </div>
 
-                <div class="item">
-                    <h2>Coloração</h2>
-                    <img src="../assets/pedicure.png" alt="">
-                    <p>Técnicas profissionais para transformar e iluminar seus fios.</p>
-                </div>
+            <div class="item">
+                <h2>Coloração</h2>
+                <img src="../assets/coloracao.png" alt="">
+                <p>Técnicas profissionais para transformar e iluminar seus fios.</p>
+            </div>
 
-                <div class="item">
-                    <h2>Pedicure</h2>
-                    <img src="../assets/coloracao.png" alt="">
-                    <p>Cortes personalizados que valorizam seu estilo e realçam sua beleza.</p>
-                </div>
+            <div class="item">
+                <h2>Pedicure</h2>
+                <img src="../assets/pedicure.png" alt="">
+                <p>Cuidado completo dos pés com acabamento profissional.</p>
+            </div>
 
-                <div class="item">
-                    <h2>Jato de Plasma</h2>
-                    <img src="../assets/mascara-facial.png" alt="">
-                    <p>Procedimento que melhora a firmeza e aparência da pele.</p>
+            <div class="item">
+                <h2>Jato de Plasma</h2>
+                <img src="../assets/mascara-facial.png" alt="">
+                <p>Procedimento que melhora a firmeza e aparência da pele.</p>
             </div>
 
         </div>
-
     </div>
 
-    <div class="container bege column">
 
+    <!-- EQUIPE -->
+    <div class="container-secundario bege column">
 
         <section class="team">
+
             <div class="team-header">
-                <h2>
-                Conheça nossa <span>equipe</span>
-                </h2>
+                <h2>Conheça nossa <span>equipe</span></h2>
                 <p class="cormorant">Profissionais excelentes prontas para atender você.</p>
             </div>
 
             <div class="team-carousel">
 
-                    <div class="team-cards">
-                                
-                        <div class="team-card">
-                            <img src="../assets/juliana.png">
-                            <div class="card-info">
-                                <h3>Juliana Alvez</h3>
-                                <p>Especialista em estética.</p>
-                                <span>+ 7 anos de experiência</span>
-                            </div>
-                        </div>
+                <div class="team-cards">
 
-                        <div class="team-card">
-                            <img src="../assets/renataSouza.png">
-                            <div class="card-info">
-                                <h3>Renata Souza</h3>
-                                <p>Especialista em estética.</p>
-                                <span>+ 7 anos de experiência</span>
-                            </div>
+                    <div class="team-card">
+                        <img src="../assets/juliana.png" alt="">
+                        <div class="card-info">
+                            <h3>Juliana Alvez</h3>
+                            <p>Especialista em estética.</p>
+                            <span>+ 7 anos de experiência</span>
                         </div>
+                    </div>
 
-                        <div class="team-card">
-                            <img src="../assets/carla.png">
-                            <div class="card-info">
-                                <h3>Carla Menezes</h3>
-                                <p>Especialista em estética.</p>
-                                <span>+ 7 anos de experiência</span>
-                            </div>
+                    <div class="team-card">
+                        <img src="../assets/renataSouza.png" alt="">
+                        <div class="card-info">
+                            <h3>Renata Souza</h3>
+                            <p>Especialista em estética.</p>
+                            <span>+ 7 anos de experiência</span>
                         </div>
+                    </div>
 
+                    <div class="team-card">
+                        <img src="../assets/carla.png" alt="">
+                        <div class="card-info">
+                            <h3>Carla Menezes</h3>
+                            <p>Especialista em estética.</p>
+                            <span>+ 7 anos de experiência</span>
+                        </div>
                     </div>
 
                 </div>
+            </div>
 
         </section>
-
     </div>
 
 
-    <div class="container cinza centralizar">   
-        <div class="column centralizar">
-            <p class="joan mapa-titulo">Localização Studio Tukotomi</p>
-              <div class="mapa-container">
-                <iframe 
-                src="https://maps.google.com/maps?q=-23.535871,-46.473097&z=18&output=embed"
-                allowfullscreen=""
-                loading="lazy">
+    <!-- MAPA -->
+    <div class="cinza centralizar ">
+
+        <div class="container-secundario column centralizar ">
+
+            <p class="joan mapa-titulo">
+                Venha nos conhecer
+            </p>
+
+            <div class="mapa-container">
+
+                <iframe src="https://maps.google.com/maps?q=-23.535871,-46.473097&z=16&output=embed" loading="lazy"
+                    allowfullscreen>
                 </iframe>
+
             </div>
+
         </div>
     </div>
 
-    <footer class="footer preto">
-            <div class="footer-container">
 
-                <div class="footer-brand">
+    <!-- FOOTER -->
+    <footer class="footer preto">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
                 <h3>Studio Elegance</h3>
                 <p>Cuidando da sua beleza com excelência e profissionalismo.</p>
-                </div>
+            </div>
 
-                <div class="footer-links">
+            <div class="footer-links">
                 <h4>Links rápidos</h4>
                 <ul>
                     <li><a href="#">Início</a></li>
@@ -250,63 +279,69 @@
                     <li><a href="#">Equipe</a></li>
                     <li><a href="#">Contato</a></li>
                 </ul>
-                </div>
+            </div>
 
-                <div class="footer-contact">
+            <div class="footer-contact">
                 <h4>Contato</h4>
                 <p>📍 São Paulo - SP</p>
                 <p>📞 (11) 99999-9999</p>
                 <p>✉ contato@studio.com</p>
-                </div>
-
             </div>
 
-            <div class="footer-bottom">
-                <p>© 2026 Studio Elegance. Todos os direitos reservados.</p>
-            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Studio Elegance. Todos os direitos reservados.</p>
+        </div>
+
     </footer>
 
-</body>
-</html>
 
-<script>
+    <script>
 
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
+        const hamburger = document.getElementById('hamburger')
+        const mobileMenu = document.getElementById('mobileMenu')
 
-    hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    });
+        hamburger.addEventListener('click', () => {
+
+            hamburger.classList.toggle('open')
+            mobileMenu.classList.toggle('open')
+
+        })
 
 
-    const track = document.querySelector(".team-cards")
-    const cards = document.querySelectorAll(".team-card")
+        const track = document.querySelector(".team-cards")
+        const cards = document.querySelectorAll(".team-card")
 
-    let index = 0
+        let index = 0
 
-    function slide(){
+        function slide() {
 
-        // se for desktop, não faz nada
-        if(window.innerWidth > 768) return
+            if (window.innerWidth > 768) return
 
-        index++
+            index++
 
-        if(index >= cards.length){
-            index = 0
+            if (index >= cards.length) {
+                index = 0
+            }
+
+            track.style.transform = `translateX(-${index * 100}%)`
+
         }
 
-        track.style.transform = `translateX(-${index * 89}%)`
-    }
+        setInterval(slide, 3000)
 
-    setInterval(slide, 3000)
 
-    function irCadastro(){
-        window.location.href = "../templates/rdr-login-sign.html"
-    }
+        function irCadastro() {
+            window.location.href = "../templates/rdr-login-sign.html"
+        }
 
-    function irInfo(){
-        window.location.href = "../templates/info.html"
-    }
+        function irInfo() {
+            window.location.href = "../templates/info.html"
+        }
 
-</script>
+    </script>
+
+</body>
+
+</html>
