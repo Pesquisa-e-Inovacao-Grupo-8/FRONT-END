@@ -133,7 +133,7 @@ body{
 
     <div class="navbar">
 
-        <h1>Painel do Cliente</h1>
+        <h1 id="msg"></h1>
 
         <div class="nav-icons">
 
@@ -203,6 +203,17 @@ body{
 
 </div>
 
+<script>
+    const token = localStorage.getItem("token")
+const usuario = JSON.parse(localStorage.getItem("usuario"))
+
+if(!token || !usuario){
+    window.location.href = "login.html"
+}
+document.querySelector("#msg").innerText =
+`Olá, ${usuario.nome}`
+</script>
+
 
 <script>
 
@@ -223,6 +234,9 @@ function irConfig(){
 }
 
 function logout(){
+    localStorage.removeItem("token")
+    localStorage.removeItem("usuario")
+
     window.location.href="login.html"
 }
 
