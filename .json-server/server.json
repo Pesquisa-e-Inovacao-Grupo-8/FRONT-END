@@ -23,6 +23,30 @@
       "telefone": "TesteTestinho",
       "email": "TesteTestinho",
       "senha": "TesteTestinho"
+    },
+    {
+      "id": "0dc9",
+      "nome": "Ex Pulla",
+      "cpf": "54869624010",
+      "telefone": "14964785467",
+      "email": "sonug@mailinator.com",
+      "senha": "Pa$$w0rd!"
+    },
+    {
+      "id": "559c",
+      "nome": "Ex Pulla",
+      "cpf": "54869624010",
+      "telefone": "14964785467",
+      "email": "libyfimef@mailinator.com",
+      "senha": "Pa$$w0rd!"
+    },
+    {
+      "id": "9023",
+      "nome": "Alex Torres",
+      "cpf": "92761341074",
+      "telefone": "23467853212",
+      "email": "xabusi@mailinator.com",
+      "senha": "Pa$$w0rd!"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
