@@ -109,7 +109,7 @@ function mostrarErro(input, mensagem){
     const label = grupo.querySelector("label")
 
     input.classList.add("input-error")
-    label.classList.add("label-error")
+    
 
     let erro = grupo.querySelector(".error-message")
 
@@ -128,7 +128,6 @@ function limparErro(input){
     const erro = grupo.querySelector(".error-message")
 
     input.classList.remove("input-error")
-    label.classList.remove("label-error")
 
     if(erro){
         erro.remove()
@@ -167,5 +166,7 @@ function irConfig() {
 }
 
 function logout() {
+    localStorage.removeItem("token")
+    localStorage.removeItem("usuario")
     window.location.href = "../templates/login.html"
 }
