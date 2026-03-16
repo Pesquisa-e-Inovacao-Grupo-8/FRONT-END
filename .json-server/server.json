@@ -33,5 +33,42 @@
       "senha": "123456"
     }
   ],
+  "Agendamentos": [
+    {
+      "dia": "2026-02-01",
+      "horario": "08:00",
+      "servicoId": 1,
+      "servicoNome": "Corte Masculino",
+      "duracao": "120",
+      "preco": "80",
+      "id": "1"
+    },
+    {
+      "id": "d7be",
+      "dia": "2026-03-01",
+      "horario": "08:00",
+      "servicoId": "1",
+      "servicoNome": "Corte Masculino",
+      "duracao": "120",
+      "preco": "80"
+    },
+    {
+      "id": "f419",
+      "dia": "2026-03-02",
+      "horario": "10:00",
+      "servicoId": "1",
+      "servicoNome": "Corte Masculino",
+      "duracao": "120",
+      "preco": "80"
+    }
+  ],
+  "Servicos": [
+    {
+      "nome": "corte feminino",
+      "duracao": "100",
+      "preco": "24.00",
+      "id": "e619"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
